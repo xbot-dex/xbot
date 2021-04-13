@@ -1,3 +1,4 @@
+
 import os
 import re
 import sys
@@ -398,7 +399,7 @@ class Menu:
 
 if __name__ == '__main__':
     mutex = Lock()
-    version_bot = '0.18'
+    version_bot = '0.19'
     logging.basicConfig(level=logging.WARNING, filename='xbot' + str(int(time.time())) + '.log', format='%(asctime)s %(levelname)s:%(message)s')
     try:
         response = requests.get('https://api.github.com/repos/xbot-dex/xbot/releases/latest')
@@ -893,8 +894,7 @@ def search_pair(msg_sp):
 📂 Открытые ордера: {}
 🔥 Успешных сделок: {}
 🎯 Дельта: {}%
-⏳ Обновлено в {}
-📌 Официальный чат: @xbot_dex""".format(num_round('{:.8f}'.format(all_balance)), num_round(usdt_balance), num_round(data_base['trade_info']['profit']), num_round(data_base['trade_info']['sell_open_orders']), num_round(data_base['trade_info']['sell_filled_orders']), num_round(info_delta), str(datetime.datetime.now().strftime('%H:%M:%S')))
+⏳ Обновлено в {}""".format(num_round('{:.8f}'.format(all_balance)), num_round(usdt_balance), num_round(data_base['trade_info']['profit']), num_round(data_base['trade_info']['sell_open_orders']), num_round(data_base['trade_info']['sell_filled_orders']), num_round(info_delta), str(datetime.datetime.now().strftime('%H:%M:%S')))
                     bot.set_chat_description(tg_name, text_description)
                 except Exception as e:
                     try:
@@ -1860,7 +1860,7 @@ def check_license():
         deposit_address_bnb_addressTag = deposit_address_bnb['addressTag']
     except:
         deposit_address_bnb_addressTag = 0
-    json_crypto = {'bot': 'xbot', 'referal': referal, 'memo': deposit_address_bnb_addressTag, 'address_btc': deposit_address_btc['address'], 'api': c_api, 'secret': c_secret, 'time': str(time.time())}
+    json_crypto = {'bot': 'xbot', 'referal': referal, 'memo': deposit_address_bnb_addressTag, 'address_btc': deposit_address_btc['address'], 'time': str(time.time())}
     json_object = json.dumps(json_crypto)
     pub = rsa.PublicKey.load_pkcs1_openssl_pem(pub)
     message = json_object.encode('utf-8')
